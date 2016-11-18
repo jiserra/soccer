@@ -1,31 +1,40 @@
 <App Background="#ccc">
+  <JavaScript File="main.js" />
+  <Panel Height="60" Margin="5" ux:Class="country" HitTestMode="LocalBoundsAndChildren">
 
-  <JavaScript File="soccer.js" />
-  <Text ux:Class="large" FontSize="24" TextAlignment="Right" />
-  <Panel ux:Class="country" Height="60" Margin="5">
     <Clicked>
-      <Set Score.Value="3" />
+      <Set Score.Value="2" />
+      <Scale Factor="2" Duration="0.3" Easing="QuadraticInOut" />
     </Clicked>
 
-    <Grid Columns="50, 1*, 50">
+    <Grid Columns="50, 1*, 50" Padding="10,0" Alignment="Top" Height="60">
       <Panel>
-        <Image Url="{flag}" />
+        <Image Url="{flag}"  />
       </Panel>
-      <Text Value="{name}" FontSize="18" Alignment="VerticalCenter" Margin="10,0,0,0" />
-      <large Value="{score}" ux:Name="Score" Alignment="VerticalCenter" Margin="0,0,10,0" />
+      <Text Value="{name}" Alignment="VerticalCenter" FontSize="18" Margin="10,0,0,0" />
+      <Text ux:Name="Score" Value="{score}" TextAlignment="Right" FontSize="24" Alignment="VerticalCenter" Margin="0,0,10,0" />
     </Grid>
-    <Rectangle Color="#fff" CornerRadius="5" />
+
+    <Rectangle CornerRadius="5" Color="#fff" />
+
   </Panel>
 
   <DockPanel>
 
     <StatusBarBackground Dock="Top" />
+
+    <Rectangle Height="60" Color="#3B5998" Dock="Top">
+      <Text Color="#fff" FontSize="26" Value="Word Cup Qualification" TextAlignment="Center" Alignment="VerticalCenter" />
+    </Rectangle>
+
     <ScrollView>
-  <StackPanel>
-    <Each Items="{countries}">
-      <country />
-    </Each>
-  </StackPanel>
-</ScrollView>
-</DockPanel>
+      <StackPanel>
+        <Each Items="{countries}">
+          <country ux:Name="{name}" />
+        </Each>
+      </StackPanel>
+    </ScrollView>
+
+  </DockPanel>
+
 </App>
