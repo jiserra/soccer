@@ -1,0 +1,31 @@
+<App Background="#ccc">
+
+  <JavaScript File="soccer.js" />
+  <Text ux:Class="large" FontSize="24" TextAlignment="Right" />
+  <Panel ux:Class="country" Height="60" Margin="5">
+    <Clicked>
+      <Set Score.Value="3" />
+    </Clicked>
+
+    <Grid Columns="50, 1*, 50">
+      <Panel>
+        <Image Url="{flag}" />
+      </Panel>
+      <Text Value="{name}" FontSize="18" Alignment="VerticalCenter" Margin="10,0,0,0" />
+      <large Value="{score}" ux:Name="Score" Alignment="VerticalCenter" Margin="0,0,10,0" />
+    </Grid>
+    <Rectangle Color="#fff" CornerRadius="5" />
+  </Panel>
+
+  <DockPanel>
+
+    <StatusBarBackground Dock="Top" />
+    <ScrollView>
+  <StackPanel>
+    <Each Items="{countries}">
+      <country />
+    </Each>
+  </StackPanel>
+</ScrollView>
+</DockPanel>
+</App>
